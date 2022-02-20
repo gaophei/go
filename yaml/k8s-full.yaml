@@ -334,5 +334,13 @@ subsets:
     port: 9376
     protocol: TCP
 ---
-
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: pod-reader
+  namespace: default
+rules:
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get","list","watch"]
 
